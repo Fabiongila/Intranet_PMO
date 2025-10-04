@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Intranet PMO</title>
+</head>
+<body>
+  <nav>
+    {% if user.is_authenticated %}
+      <p>Olá, {{ user.username }} | <a href="{% url 'logout' %}">Sair</a></p>
+    {% endif %}
+    <hr>
+  </nav>
+
+  {% block content %}{% endblock %}
+</body>
+</html>

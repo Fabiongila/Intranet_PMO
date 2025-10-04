@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cadastro</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div>
+    {{ form.username.label_tag }}<br>
+    {{ form.username }}
+  </div>
+  <div>
+    {{ form.email.label_tag }}<br>
+    {{ form.email }}
+  </div>
+  <div>
+    {{ form.password.label_tag }}<br>
+    {{ form.password }}
+  </div>
+  <div>
+    {{ form.password2.label_tag }}<br>
+    {{ form.password2 }}
+  </div>
+  <button type="submit">Cadastrar</button>
+</form>
+<p>Já tem conta? <a href="{% url 'login' %}">Entrar</a></p>
+{% endblock %}

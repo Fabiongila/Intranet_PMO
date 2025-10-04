@@ -34,5 +34,5 @@ class Tarefa(models.Model):
 class Arquivo(models.Model):
     projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE)
     arquivo = models.FileField(upload_to='uploads/')
-    enviado_em = models.DateTimeField(auto_now_add=True)
     enviado_por = models.ForeignKey(User, on_delete=models.CASCADE)
+    enviado_em = models.DateTimeField(auto_now_add=True)

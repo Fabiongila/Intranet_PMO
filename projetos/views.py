@@ -60,8 +60,10 @@ def upload_arquivo(request, projeto_id):
         if form.is_valid():
             arquivo = form.save(commit=False)
             arquivo.projeto = projeto
+            arquivo.enviado_por = request.user  # ← Aqui
             arquivo.save()
             return redirect('detalhes_projeto', projeto_id=projeto.id)
     else:
         form = ArquivoForm()
     return render(request, 'projetos/upload_arquivo.html', {'form': form, 'projeto': projeto})
+

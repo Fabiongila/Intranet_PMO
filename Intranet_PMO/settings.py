@@ -49,6 +49,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
+# Confiuração de autenticação
+LOGIN_URL = '/usuarios/login/'
+LOGIN_REDIRECT_URL = '/'
 
 
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMO - Novo Projeto</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/hover.css">
+    <style>
+        .hidden form{
+            display: none;
+        }
+        #link{
+            background-color: #dfd7cb;
+            border: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!--Aqui vai ser exibido o conteúdo principal.-->
+        <nav>
+            <h1>Novo Projeto</h1>
+            <p id="hour"></p>
+        </nav>
+        <section>
+            <a class="btn-Adddep" id="botaodep" href="#" onclick="botaodep()"> Criar Novo Projeto+</a>
+            <section id="hidden" class="hidden">
+                <form action="#">
+                <label for="">Nome</label>
+                <input type="text" placeholder="Nome do Projeto..." required><br><br>
+                <label for="">Data de Entrega</label>
+                <input type="date" placeholder=""><br><br>
+                <label for="">Descrição</label>
+                <input type="text" placeholder="Descrição do Projeto..."><br><br>
+                <button>Adicionar</button><br>
+            </section>
+        </section>
+    </div>
+    <script src="/script/script.js"></script>
+</body>
+</html>

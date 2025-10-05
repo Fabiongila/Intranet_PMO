@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Meus Projetos</h2>
+<a href="{% url 'novo_projeto' %}">+ Novo Projeto</a>
+<ul>
+  {% for projeto in projetos %}
+    <li>
+      <a href="{% url 'detalhes_projeto' projeto.id %}">{{ projeto.nome }}</a> - Até {{ projeto.deadline }}
+    </li>
+  {% empty %}
+    <li>Nenhum projeto encontrado.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

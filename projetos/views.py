@@ -54,16 +54,14 @@ def nova_tarefa(request, projeto_id):
 
 @login_required
 def upload_arquivo(request, projeto_id):
-    projeto = get_object_or_404(Projeto, id=projeto_id)
+    projeto = get_object_or_404(Projeto, id=projeto_id, criado_por=request.user)
     if request.method == 'POST':
         form = ArquivoForm(request.POST, request.FILES)
         if form.is_valid():
             arquivo = form.save(commit=False)
             arquivo.projeto = projeto
-            arquivo.enviado_por = request.user  # ← Aqui
             arquivo.save()
             return redirect('detalhes_projeto', projeto_id=projeto.id)
     else:
         form = ArquivoForm()
     return render(request, 'projetos/upload_arquivo.html', {'form': form, 'projeto': projeto})
-

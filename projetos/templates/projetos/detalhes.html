@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ projeto.nome }}</h2>
+<p>{{ projeto.descricao }}</p>
+<p>Deadline: {{ projeto.deadline }}</p>
+
+<h3>Tarefas</h3>
+<a href="{% url 'nova_tarefa' projeto.id %}">+ Nova Tarefa</a>
+<ul>
+  {% for tarefa in tarefas %}
+    <li>
+      {{ tarefa.descricao }} - {{ tarefa.get_status_display }} - {{ tarefa.progresso }}%
+    </li>{% empty %}
+    <li>Sem tarefas.</li>
+  {% endfor %}
+</ul>
+
+<h3>Arquivos</h3>
+<ul>
+  <a href="{% url 'upload_arquivo' projeto.id %}">+ Enviar Arquivo</a>
+  {% for arquivo in arquivos %}
+    <li><a href="{{ arquivo.arquivo.url }}">{{ arquivo.arquivo.name }}</a></li>
+  {% empty %}
+    <li>Nenhum arquivo enviado.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

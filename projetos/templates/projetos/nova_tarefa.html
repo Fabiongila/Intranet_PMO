@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Nova Tarefa para: {{ projeto.nome }}</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Salvar Tarefa</button>
+</form>
+<a href="{% url 'detalhes_projeto' projeto.id %}">Voltar</a>
+{% endblock %}

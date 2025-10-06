@@ -65,3 +65,18 @@ def upload_arquivo(request, projeto_id):
     else:
         form = ArquivoForm()
     return render(request, 'projetos/upload_arquivo.html', {'form': form, 'projeto': projeto})
+
+
+@login_required
+def conatactos(request):
+    return(request, 'projetos/contactos.html')
+
+
+@login_required
+def sobre(request):
+    return(request, 'projetos/sobre.html')
+
+
+@login_required
+def faqs(request):
+    return(request, 'projetos/faqs.html')

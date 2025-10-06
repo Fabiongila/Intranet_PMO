@@ -1,15 +1,57 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block content %}
 
-<html lang="pt-BR">
+<body>
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sobre Nós</title>
-    <style>
+    <div class="wrapper">
+        <section class="card sobre">
+            <div class="sobre-hero">
+                <div>
+                    <h1>Sobre Nós</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, minus voluptatibus exercitationem, incidunt fuga optio dolor ipsam tenetur a consequatur eveniet? Repudiandae quod aliquam delectus ex sint. Explicabo, dicta quisquam.</p>
+
+                    <div class="sobre-list">
+                        <div class="stats">
+                            <div class="stat">
+                                <strong>+120</strong>
+                                <div>Usuários</div>
+                            </div>
+                            <div class="stat">
+                                <strong>+8k</strong>
+                                <div>Empresas</div>
+                            </div>
+                        </div>
+
+                        <div class="missao">
+                            <h3>Nossa missão</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tempora alias earum numquam, sint odit mollitia, id consequuntur velit unde neque nobis tenetur, consectetur sed? Mollitia dignissimos quia placeat recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="card join">
+                        <strong>Junte-se a nós</strong>
+                        <p>Publique aulas, participe nas comunidades e cresça com a gente.</p>
+                        <p><a href="{% url 'login' %}">Criar conta</a></p>
+                    </div>
+
+                    <div class="card valores">
+                        <strong>Valores</strong>
+                        <ul>
+                            <li>Praticidade</li>
+                            <li>Qualidade</li>
+                            <li>Comunidade</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+</div>
+
+</body>
+
+<style>
         :root {
             --primary: #002;
             --accent: #dfd7cb;
@@ -31,14 +73,13 @@
             font-family: var(--font);
             background: var(--accent);
             color: var(--black);
-            padding: 2rem;
-            display: flex;
             justify-content: center;
-        }
+        } 
 
         .wrapper {
             max-width: var(--maxw);
             width: 100%;
+            padding:2%;
         }
 
         header {
@@ -116,59 +157,7 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-</head>
-
-<body>
-    <div class="wrapper">
-        <section class="card sobre">
-            <div class="sobre-hero">
-                <div>
-                    <h1>Sobre Nós</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, minus voluptatibus exercitationem, incidunt fuga optio dolor ipsam tenetur a consequatur eveniet? Repudiandae quod aliquam delectus ex sint. Explicabo, dicta quisquam.</p>
-
-                    <div class="sobre-list">
-                        <div class="stats">
-                            <div class="stat">
-                                <strong>+120</strong>
-                                <div>Usuários</div>
-                            </div>
-                            <div class="stat">
-                                <strong>+8k</strong>
-                                <div>Empresas</div>
-                            </div>
-                        </div>
-
-                        <div class="missao">
-                            <h3>Nossa missão</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tempora alias earum numquam, sint odit mollitia, id consequuntur velit unde neque nobis tenetur, consectetur sed? Mollitia dignissimos quia placeat recusandae.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <aside>
-                    <div class="card join">
-                        <strong>Junte-se a nós</strong>
-                        <p>Publique aulas, participe nas comunidades e cresça com a gente.</p>
-                        <button class="btn">Criar conta</button>
-                    </div>
-
-                    <div class="card valores">
-                        <strong>Valores</strong>
-                        <ul>
-                            <li>Praticidade</li>
-                            <li>Qualidade</li>
-                            <li>Comunidade</li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
-        </section>
-    </div>
-</body>
-
-</html>
-
+</style>
 
 
 {% endblock %}

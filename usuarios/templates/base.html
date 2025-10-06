@@ -7,13 +7,16 @@
 <body>
   <nav>
     {% if user.is_authenticated %}
-      <p>Olá, {{ user.username }} | </p>
+      <div>
+        <p id="hour" ></p><span>  {{ user.username }} |</span>
+      </div>
     {% endif %}
     <div class="link">
+      <a href="{% url 'dashboard' %}">Casa</a>
       <a href="{% url 'sobre' %}" >Sobre</a>
       <a href="{% url 'faqs' %}" >FAQs</a>
       <a href="{% url 'contactos' %}" >Contactos</a>
-      <a href="{% url 'logout' %}">Sair</a>
+      <a href="{% url 'logout' %}">🚪 Sair</a>
     </div>
 
   </nav>
@@ -40,14 +43,37 @@
   nav a{
     color:#fff;
   }
-  nav p{
-    flex:80;
+  nav div{
+    flex:70;
+    display:flex;
   }
   nav .link{
-    flex:20;
+    flex:30;
   }
   .link a{
     margin-left:5%;
     text-decoration:none;
   }
 </style>
+
+<script>
+
+  const turno = () =>{
+            const date = new Date();
+            let hora = date.getHours()
+            let minuto = date.getMinutes()
+            let segundo = date.getSeconds()
+            {% comment %} document.getElementById("hour").innerHTML=`${hora}:${minuto}:${segundo}` {% endcomment %}
+            if(hora < 12){
+              document.getElementById("hour").innerHTML="Bom dia, "
+            }
+            else if(hora >= 12 && hora < 18){
+              document.getElementById("hour").innerHTML="Boa tarde, "
+            }
+            else if(hora >= 18){
+              document.getElementById("hour").innerHTML="Boa noite, "
+            }
+          }
+        turno()
+
+</script>

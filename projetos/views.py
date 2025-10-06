@@ -70,14 +70,12 @@ def upload_arquivo(request, projeto_id):
 
 @login_required
 def contactos(request):
-    return(request, 'projetos/contactos.html')
-
+    return render(request, 'projetos/contactos.html')
 
 @login_required
 def sobre(request):
-    return(request, 'projetos/sobre.html')
-
+    return render(request, 'projetos/sobre.html')
 
 @login_required
 def faqs(request):
-    return(request, 'projetos/faqs.html')
+    return render(request, 'projetos/faqs.html')

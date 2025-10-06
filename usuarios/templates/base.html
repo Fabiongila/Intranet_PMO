@@ -9,9 +9,25 @@
     {% if user.is_authenticated %}
       <p>Olá, {{ user.username }} | <a href="{% url 'logout' %}">Sair</a></p>
     {% endif %}
-    <hr>
+
   </nav>
 
   {% block content %}{% endblock %}
 </body>
 </html>
+
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  nav{
+    background:#002;
+    padding:1%;
+    color:#fff;
+  }
+  nav a{
+    color:#fff;
+  }
+</style>

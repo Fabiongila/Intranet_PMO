@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+
+  <h2>Upload de Arquivo - {{ projeto.nome }}</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar</button>
+  </form>
+  <a class="btn-voltar" href="{% url 'detalhes_projeto' projeto.id %}">Voltar</a>
+
+</section>
+
+
+<style>
+  /*SEÇÃO PRINCIPAL*/
+  section{
+      background-color: white;
+      border-radius: 4px;
+      padding: 1%;
+      margin-bottom: 2%;
+      flex-wrap: wrap;
+  }
+  h2{
+      margin-bottom: 1%;
+      color:#002;
+  }
+  /* CRIAR PROJETO*/
+  form button{
+      background: #002;
+      {% comment %} width: 100%; {% endcomment %}
+      color: #fff;
+      padding: 1%;
+      border-radius: 4px;
+  }
+  form input{
+      padding: 1%;
+      margin: 1%;
+      border-radius: 4px;
+      border: none;
+      border-bottom: 1px solid #002;
+      width: 30%;
+    }
+    form select{
+    margin: 1%;
+  }
+  .btn-voltar{
+      border: 1px solid #002;
+      border-radius: 4px;
+      color: #dfd7cb;
+      background-color: #002;
+      text-decoration: none;
+      position:fixed;
+      bottom:0;
+      padding:1%;
+  }
+</style>
+
+
+{% endblock %}

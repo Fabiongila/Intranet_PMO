@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+
+    <h2>Projeto: {{ projeto.nome }}</h2>
+    <hr>
+    <br>
+    <h3>Descrição</h3>
+  <div class="descricao" >
+    <p>{{ projeto.descricao }}</p>
+  <p>Deadline: {{ projeto.deadline }}</p>
+</div>
+  <hr>
+  <h3>Tarefas</h3>
+  <a class="btn-new" href="{% url 'nova_tarefa' projeto.id %}">+ Nova Tarefa</a>
+  <ul>
+    {% for tarefa in tarefas %}
+      <li>
+        {{ tarefa.descricao }} - {{ tarefa.get_status_display }} - {{ tarefa.progresso }}%
+      </li>{% empty %}
+      <li>Sem tarefas.</li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <h3>Arquivos</h3>
+  <a class="btn-new" href="{% url 'upload_arquivo' projeto.id %}">+ Enviar Arquivo</a>
+  <ul>
+    {% for arquivo in arquivos %}
+    <li><a href="{{ arquivo.arquivo.url }}">{{ arquivo.arquivo.name }}</a></li>
+    {% empty %}
+      <li>Nenhum arquivo enviado.</li>
+    {% endfor %}
+  </ul>
+</section>
+<a class="btn-voltar" href="{% url 'dashboard' %}">Voltar</a>
+<style>
+    /*SEÇÃO PRINCIPAL*/
+    section{
+        background-color: white;
+        border-radius: 4px;
+        padding: 1%;
+        margin: 3%;
+        border-left:1px solid;
+    }
+    .btn-voltar{
+      border: 1px solid #002;
+      border-radius: 4px;
+      color: #dfd7cb;
+      background-color: #002;
+      text-decoration: none;
+      position:fixed;
+      bottom:0;
+      padding:1%;
+  }
+    .descricao{
+      padding:1%;
+    }
+    ul{
+      padding:2%;
+    }
+    h3,h2{
+      color:#002;
+    }
+    .btn-new{
+      border: none;
+      border-radius:4px;
+      color: black;
+      padding:0%;
+  }
+
+</style>
+
+{% endblock %}

@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %} {% endcomment %}
 {% block content %}
-<h2>Cadastro</h2>
+<div class="container" >
+  <h2>Cadastro</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.non_field_errors }}
@@ -23,4 +24,61 @@
   <button type="submit">Cadastrar</button>
 </form>
 <p>Já tem conta? <a href="{% url 'login' %}">Entrar</a></p>
+
+</div>
+
+
+<style>
+  body{
+    {% comment %} Coloca a imagem de fundo abaixo {% endcomment %}
+    {% comment %} background-image: url(/static/background.png); {% endcomment %}
+     background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  /*TELA AUTH LOGIN-REGISTRAR*/
+  .container{
+      text-align: center;
+      background-color: white;
+      border-radius: 4px;
+      padding: 1%;
+      margin-left: 30%;
+      margin-top: 3%;
+      width: 40%;
+      padding-bottom: 3%;
+      box-shadow: 0 0 5px black;
+      background-color: rgba(0, 0, 0, 0.2);
+
+  }
+  .container h2{
+    color: #002;
+      margin-bottom: 5%;
+      margin-top: 10%;
+  }
+  .container input{
+      padding: 4px;
+      margin: 1%;
+      width: 50%;
+      background-color: white;
+      border: none;
+      height: 40px;
+      border-radius: 3rem;
+  }
+  .container button{
+      background-color: #002;
+      color: white;
+      width: 25%;
+      border-radius: 4px;
+      margin-bottom: 5%;
+      padding: 2%;
+      cursor: pointer;
+  }
+  .container a{
+      color: #000;
+      font-weight: bold;
+      font-size: 14px;
+  }
+
+</style>
+
+
 {% endblock %}

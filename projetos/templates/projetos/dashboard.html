@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+  <h2>Meus Projetos</h2>
+    <a class="btn-Adddep" href="{% url 'novo_projeto' %}">+ Novo Projeto</a>
+</header>
+<section class="sec-pri" id="sec-pri">
+  {% for projeto in projetos %}
+    <!-- LISTAR PROJETOS E SUAS TAREFAS NA DESCRIÇÃO -->
+            <div class="projeto">
+                <h3>{{ projeto.nome }}</h3>
+                {% comment %} <p class="responsavel">nome padrão</p> {% endcomment %}
+                <p class="deadline">🗓️ Até: {{ projeto.deadline }}</p>
+
+                <select id="meuSelect" >
+                    <option>Pendente</option>
+                    <option>Em Andamento</option>
+                    <option>Concluído</option>
+                </select>
+
+                <div class="botoes">
+                    <a class="btn-det" href="{% url 'detalhes_projeto' projeto.id %}">detalhes</a>
+                </div>
+            </div>
+  {% empty %}
+    <li>Nenhum projeto encontrado.</li>
+  {% endfor %}
+</section>
+
+    <style>
+        header{
+            padding:1%;
+            margin:1%;
+        }
+        header h2{
+            padding:1%;
+            font-size:40px;
+            margin-bottom:2%;
+            color:#002;
+        }
+        /*BOTÃO ADICIONAR PROJETO*/
+        .btn-Adddep{
+            margin:1%;
+            background-color: #dfd7cb;
+            border: none;
+            border-radius:4px;
+            color: black;
+            padding:1%;
+        }
+        .btn-det{
+            color:#002;
+        }
+
+        /*SEÇÃO PRINCIPAL*/
+        section{
+            display: flex;
+            background-color: white;
+            border-radius: 4px;
+            padding: 1%;
+            margin-bottom: 2%;
+            flex-wrap: wrap;
+        }
+
+        /* SOBRE PROJETO*/
+
+        .projeto {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+            font-family: "Poppins", sans-serif;
+            margin-left: 1%;
+        }
+
+        .projeto:hover {
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .projeto h3 {
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .projeto p {
+            color: #555;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .projeto select {
+            width: 100%;
+            padding: 6px 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #f9f9f9;
+            transition: 0.3s;
+        }
+
+        .projeto select:hover {
+            border-color: #007bff;
+        }
+
+        .botoes {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .botoes button {
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .botoes .add {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .botoes .add:hover {
+            background-color: #0056b3;
+        }
+
+        .botoes .ver {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .botoes .ver:hover {
+            background-color: #ddd;
+        }
+
+    </style>
+
+    <script>
+        const select = document.getElementById("meuSelect");
+
+        // Cria (ou atualiza) a opção dinâmica de exibição
+        function atualizarOpcao(valor) {
+            let primeira = select.querySelector("option[data-info]");
+            if (!primeira) {
+                primeira = document.createElement("option");
+                primeira.setAttribute("data-info", "true");
+                primeira.disabled = true;
+                select.insertBefore(primeira, select.firstChild);
+            }
+            primeira.textContent = valor ? `${valor.toUpperCase()}` : "-- Escolha --";
+            select.selectedIndex = 0; // Mostra sempre a opção de informação
+        }
+
+        // Recupera valor salvo
+        const ultimaOpcao = localStorage.getItem("opcaoSelecionada");
+        if (ultimaOpcao) {
+            atualizarOpcao(ultimaOpcao);
+        } else {
+            atualizarOpcao("");
+        }
+
+        // Quando mudar, salva e atualiza
+        select.addEventListener("change", () => {
+            const valor = select.value;
+            if (valor !== "") {
+                localStorage.setItem("opcaoSelecionada", valor);
+                atualizarOpcao(valor);
+            }
+        });
+    </script>  
+
+{% endblock %}

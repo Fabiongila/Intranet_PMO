@@ -2,16 +2,152 @@
 {% load static %}
 
 {% block content %}
-<div class="content">
-  <h2>Perguntas Frequentes (FAQ)</h2>
 
-  <h4>1. Como criar um novo projeto?</h4>
-  <p>Vá até "Criar Projeto" no menu lateral e preencha o formulário.</p>
+<html lang="pt-BR">
 
-  <h4>2. Posso editar uma tarefa após criada?</h4>
-  <p>Sim, acesse os detalhes do projeto e clique na tarefa desejada para editar.</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-  <h4>3. Como faço upload de arquivos?</h4>
-  <p>Dentro de um projeto, clique em "Enviar Arquivo".</p>
-</div>
+<body>
+    <div class="wrapper">
+        <section class="card faqs">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Como eu crio um projeto?</summary>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil sapiente omnis nam aliquid officiis impedit, recusandae hic in deserunt voluptas animi eligendi, cumque ipsam, ipsa corrupti unde! Earum, illo quisquam.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Como eu crio uma tarefa ?</summary>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo beatae soluta reiciendis in, nostrum aliquam blanditiis reprehenderit iure delectus voluptatum doloribus. Itaque atque aspernatur numquam autem culpa! Iusto, illum exercitationem.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Como recuperar minha conta ?</summary>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus accusamus reprehenderit labore adipisci obcaecati? Animi consectetur rerum velit eum voluptate, esse, doloribus officia minus at possimus eaque reiciendis nulla sint?</p>
+                </details>
+            </div>
+            <aside class="card dicas">
+                <strong>Dica rápida</strong>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae perspiciatis culpa cupiditate dicta obcaecati laudantium deleniti aliquid, quidem cum quas repudiandae commodi fuga a explicabo voluptatem error numquam mollitia neque!</p>
+                <a href="contato.html">Contacte-nos</a>
+            </aside>
+        </section>
+    </div>
+</body>
+
+<style>
+        :root {
+            --primary: #002;
+            --accent: #dfd7cb;
+            --white: #fff;
+            --black: #000;
+            --radius: 12px;
+            --gap: 1rem;
+            --maxw: 1100px;
+            --font: 'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--accent);
+            color: var(--black);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            max-width: var(--maxw);
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        nav a {
+            margin-left: .75rem;
+            text-decoration: none;
+            color: rgba(0, 0, 0, .8);
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: .6rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* FAQs */
+        .faq-item {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            padding: .8rem;
+            margin-bottom: .6rem;
+            background: var(--white);
+        }
+
+        .faq-item[open] {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        small {
+            display: block;
+            color: rgba(0, 0, 0, .6);
+            margin-top: .3rem;
+        }
+
+        footer {
+            text-align: center;
+            color: rgba(0, 0, 0, .6);
+            margin-top: 1rem;
+        }
+
+        @media(max-width: 880px) {
+
+            .sobre-hero,
+            .contato-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</html>
+
+
 {% endblock %}

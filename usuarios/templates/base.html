@@ -10,9 +10,9 @@
       <p>Olá, {{ user.username }} | </p>
     {% endif %}
     <div class="link">
-      <a href="" >Sobre</a>
-      <a href="" >FAQs</a>
-      <a href="" >Contactos</a>
+      <a href="{% url 'sobre' %}" >Sobre</a>
+      <a href="{% url 'faqs' %}" >FAQs</a>
+      <a href="{% url 'contactos' %}" >Contactos</a>
       <a href="{% url 'logout' %}">Sair</a>
     </div>
 

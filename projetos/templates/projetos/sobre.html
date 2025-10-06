@@ -2,9 +2,173 @@
 {% load static %}
 
 {% block content %}
-<div class="content">
-  <h2>Sobre o Sistema</h2>
-  <p>Este sistema foi desenvolvido para facilitar o gerenciamento de projetos internos na Transfortech.</p>
-  <p>Nosso objetivo é oferecer uma plataforma intuitiva para acompanhar tarefas, arquivos e progresso de projetos.</p>
-</div>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sobre Nós</title>
+    <style>
+        :root {
+            --primary: #002;
+            --accent: #dfd7cb;
+            --white: #fff;
+            --black: #000;
+            --radius: 12px;
+            --gap: 1rem;
+            --maxw: 1100px;
+            --font: 'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--accent);
+            color: var(--black);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            max-width: var(--maxw);
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        nav a {
+            margin-left: .75rem;
+            text-decoration: none;
+            color: rgba(0, 0, 0, .8);
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: .6rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Sobre Nós */
+        .sobre-hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .stats {
+            display: flex;
+            gap: .75rem;
+        }
+
+        .stat {
+            background: rgba(0, 0, 0, 0.05);
+            padding: .5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        small {
+            display: block;
+            color: rgba(0, 0, 0, .6);
+            margin-top: .3rem;
+        }
+
+        @media(max-width: 880px) {
+
+            .sobre-hero,
+            .contato-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="card sobre">
+            <div class="sobre-hero">
+                <div>
+                    <h1>Sobre Nós</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, minus voluptatibus exercitationem, incidunt fuga optio dolor ipsam tenetur a consequatur eveniet? Repudiandae quod aliquam delectus ex sint. Explicabo, dicta quisquam.</p>
+
+                    <div class="sobre-list">
+                        <div class="stats">
+                            <div class="stat">
+                                <strong>+120</strong>
+                                <div>Usuários</div>
+                            </div>
+                            <div class="stat">
+                                <strong>+8k</strong>
+                                <div>Empresas</div>
+                            </div>
+                        </div>
+
+                        <div class="missao">
+                            <h3>Nossa missão</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tempora alias earum numquam, sint odit mollitia, id consequuntur velit unde neque nobis tenetur, consectetur sed? Mollitia dignissimos quia placeat recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="card join">
+                        <strong>Junte-se a nós</strong>
+                        <p>Publique aulas, participe nas comunidades e cresça com a gente.</p>
+                        <button class="btn">Criar conta</button>
+                    </div>
+
+                    <div class="card valores">
+                        <strong>Valores</strong>
+                        <ul>
+                            <li>Praticidade</li>
+                            <li>Qualidade</li>
+                            <li>Comunidade</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
+
+
+
 {% endblock %}

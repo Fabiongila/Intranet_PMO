@@ -2,13 +2,168 @@
 {% load static %}
 
 {% block content %}
-<div class="content">
-  <h2>Contato</h2>
-  <p>Para suporte ou dúvidas, entre em contato:</p>
-  <ul>
-    <li>Email: suporte@transfortech.com</li>
-    <li>Telefone: +244 999 999 999 </li>
-    <li>Endereço: Rua xxxx, Luanda, Angola</li>
-  </ul>
-</div>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contatos</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="card contato">
+            <h2>Contatos</h2>
+            <div class="contato-layout">
+                <form id="formContato" onsubmit="return handleSubmit(event)">
+                    <label for="nome">Nome</label>
+                    <input id="nome" name="nome" type="text" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
+
+                    <label for="assunto">Assunto</label>
+                    <input id="assunto" name="assunto" type="text">
+
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+
+                    <button class="btn" type="submit">Enviar mensagem</button>
+                </form>
+
+                <aside class="card infos">
+                    <strong>Outras formas de nos contactar</strong>
+                    <p>Telefone: +244 933 600 597<br>Morada: Rua Jacó, Cidade</p>
+                    <strong>Horário</strong>
+                    <p>Seg — Sex: 08:00 — 17:00</p>
+                </aside>
+            </div>
+        </section>
+    </div>
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const msg = document.getElementById('mensagem').value.trim();
+            if (!nome || !email || !msg) { alert('Por favor preencha os campos obrigatórios.'); return false; }
+            alert('Mensagem enviada. Obrigado!');
+            e.target.reset();
+            return false;
+        }
+    </script>
+</body>
+
+
+<style>
+        :root {
+            --primary: #002;
+            --accent: #dfd7cb;
+            --white: #fff;
+            --black: #000;
+            --radius: 12px;
+            --gap: 1rem;
+            --maxw: 1100px;
+            --font: 'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--accent);
+            color: var(--black);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            max-width: var(--maxw);
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        nav a {
+            margin-left: .75rem;
+            text-decoration: none;
+            color: rgba(0, 0, 0, .8);
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: .6rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        /* Contato */
+        .contato-layout {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 1rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: .6rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: .5rem;
+        }
+
+        small {
+            display: block;
+            color: rgba(0, 0, 0, .6);
+            margin-top: .3rem;
+        }
+
+        @media(max-width: 880px) {
+
+            .sobre-hero,
+            .contato-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</html>
+
+
+
+
+
 {% endblock %}

@@ -1,0 +1,21 @@
+{% load static %}
+
+{% block content %}
+<h2>Editar Perfil</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+        <label for="id_logotipo">Logotipo:</label>
+        {{ form.logotipo }}
+    </div>
+
+    {% if config.logotipo %}
+        <div>
+            <p>Imagem atual:</p>
+            <img src="{{ config.logotipo.url }}" alt="Logotipo" style="max-width: 150px;">
+        </div>
+    {% endif %}
+    <button type="submit">Salvar alterações</button>
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMO - Definições</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/hover.css' %}">
+</head>
+
+<body>
+    {% include 'projetos/sidebar.html' %}
+    <div class="content">
+        <!--Aqui vai ser exibido o conteúdo principal.-->
+        <nav>
+            <h1>Settings</h1>
+        </nav>
+        <section class="perso" >
+            <h2 a >Personalize</h2>
+            <a href="{% url 'configurar' %}">Logotipo</a>
+            <a href="{% url 'editar_usuario' %}">Editar Usuario</a>
+        </section>
+        <section class="auth">
+            <h2>Users</h2>
+            <a href="{% url 'cadastro' %}">Novo Usuário</a>
+            <a href="{% url 'logout' %}">Sign Out</a>
+        </section>
+        <section class="danger">
+            <h2>Danger zone</h2>
+            <!--button>Desative account</button-->
+            <!--button>Delete account</button-->
+        </section>
+    </div>
+</body>
+
+</html>
+{% endblock %}

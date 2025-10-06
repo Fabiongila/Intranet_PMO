@@ -7,8 +7,14 @@
 <body>
   <nav>
     {% if user.is_authenticated %}
-      <p>Olá, {{ user.username }} | <a href="{% url 'logout' %}">Sair</a></p>
+      <p>Olá, {{ user.username }} | </p>
     {% endif %}
+    <div class="link">
+      <a href="" >Sobre</a>
+      <a href="" >FAQs</a>
+      <a href="" >Contactos</a>
+      <a href="{% url 'logout' %}">Sair</a>
+    </div>
 
   </nav>
 
@@ -22,12 +28,26 @@
     padding:0;
     box-sizing:border-box;
   }
+  body{
+    background-color:#dfd7cb;
+  }
   nav{
+    display:flex;
     background:#002;
     padding:1%;
     color:#fff;
   }
   nav a{
     color:#fff;
+  }
+  nav p{
+    flex:80;
+  }
+  nav .link{
+    flex:20;
+  }
+  .link a{
+    margin-left:5%;
+    text-decoration:none;
   }
 </style>

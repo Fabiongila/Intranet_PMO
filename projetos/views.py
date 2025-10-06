@@ -41,7 +41,7 @@ def detalhes_projeto(request, projeto_id):
 def nova_tarefa(request, projeto_id):
     projeto = get_object_or_404(Projeto, id=projeto_id)
     if request.method == 'POST':
-        form = TarefaForm(request.POST)
+        form_nt = TarefaForm(request.POST)
         if form_nt.is_valid():
             tarefa = form_nt.save(commit=False)
             tarefa.projeto = projeto
@@ -56,13 +56,17 @@ def nova_tarefa(request, projeto_id):
 def upload_arquivo(request, projeto_id):
     projeto = get_object_or_404(Projeto, id=projeto_id, criado_por=request.user)
     if request.method == 'POST':
-        form = ArquivoForm(request.POST, request.FILES)
-        if form.is_valid():
-            arquivo = form.save(commit=False)
+        form_aq = ArquivoForm(request.POST, request.FILES)
+        if form_aq.is_valid():
+            arquivo = form_aq.save(commit=False)
             arquivo.projeto = projeto
             arquivo.enviado_por = request.user  # ✅ Adicione isso
             arquivo.save()
             return redirect('detalhes_projeto', projeto_id=projeto.id)
     else:
-        form = ArquivoForm()
-    return render(request, 'projetos/upload_arquivo.html', {'form': form, 'projeto': projeto})
+        form_aq = ArquivoForm()
+    return render(request, 'projetos/upload_arquivo.html', {'form_aq': form_aq, 'projeto': projeto})
+
+
+def definicoes(request):
+    return render(request, 'projetos/definicoes.html')

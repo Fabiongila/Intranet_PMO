@@ -1,44 +1,26 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load widget_tweaks %}
 {% load static %}
 
-<html lang="pt">
+{% block content %}
+  {% include "projetos/sidebar.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PMO - Inicio</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    <link rel="stylesheet" href="{% static 'style/hover.css' %}">
-</head>
-<body>
-  <div class="sidebar">
-      <img class="icon" src="{% static 'static/logo caf.png' %}" alt="logotipo ou nome da empresa">
-      <a href="#">Dashboard</a>
-      <a href="{% url 'novo_projeto' %}">Criar Projeto</a>
-      <a href="{% url 'dashboard' %}">Meus Projetos</a>
-      
-      <div class="sidebarBottom">
-          <a href="#"><img src="{% static 'icon/help.png' %}" alt=""></a>
-      </div>
-      <div class="info-rodape">
-          <p>Todos direitos reservados a Transfortech</p>
-      </div>
+  <div class="content">
+    
+    <a href="{% url 'novo_projeto' %}" class="botao-novo">+ Novo Projeto</a>
+    <h2>Meus Projetos</h2>
+    <ul>
+      {% for projeto in projetos %}
+        <li>
+          <a href="{% url 'detalhes_projeto' projeto.id %}">
+            {{ projeto.nome }}
+          </a>
+        </li>
+      {% empty %}
+        <li>Nenhum projeto encontrado.</li>
+      {% endfor %}
+    </ul>
   </div>
-  <h2>Meus Projetos</h2>
-  <a href="{% url 'novo_projeto' %}">+ Novo Projeto</a>
-  <ul>
-    {% for projeto in projetos %}
-      <li>
-        <a href="{% url 'detalhes_projeto' projeto.id %}">{{ projeto.nome }}</a> - Até {{ projeto.deadline }}
-      </li>
-    {% empty %}
-      <li>Nenhum projeto encontrado.</li>
-    {% endfor %}
-  </ul>
-  {% endblock %}
-  <script src="/script/script.js"></script>
-</body>
 
-</html>
+  <script src="{% static 'script/script.js' %}"></script>
+{% endblock %}

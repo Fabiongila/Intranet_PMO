@@ -1,22 +1,20 @@
 {% extends 'base.html' %}
-{% block content %}
-<h2>Nova Tarefa para: {{ projeto.nome }}</h2>
-<form method="post">
-  {% csrf_token %}
-  <div class="form-group">
-    <label for="id_deadline">Descrição</label>
-    {{ form_nt.descricao }}
-  </div>
-  <div class="form-group">
-    <label for="id_deadline">Status</label>
-    {{ form_nt.status }}
-  </div>
-  <div class="form-group">
-    <label for="id_deadline">Progresso</label>
-    {{ form_nt.progresso }}
-  </div>
+{% load widget_tweaks %}
+{% load static %}
 
-  <button type="submit">Salvar Tarefa</button>
-</form>
-<a href="{% url 'detalhes_projeto' projeto.id %}">Voltar</a>
+{% block content %}
+  {% include "projetos/sidebar.html" %}
+  <div class="content">
+    <h2>Nova Tarefa para: {{ projeto.nome }}</h2>
+    
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form_nt.as_p }}
+      </div>
+
+      <button type="submit">Salvar Tarefa</button>
+    </form>
+    <a href="{% url 'detalhes_projeto' projeto.id %}">Voltar</a>
+  </div>
 {% endblock %}

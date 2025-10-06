@@ -1,0 +1,36 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMO - Início</title>
+  <link rel="stylesheet" href="{% static 'style/style.css' %}">
+  <link rel="stylesheet" href="{% static 'style/hover.css' %}">
+</head>
+<body>
+
+  {% block content %}
+  <div class="sidebar">
+    {% if config.logotipo %}
+        <img src="{{ config.logotipo.url }}" alt="Logo" style="width: 100px;" />
+    {% else %}
+        <p>Sem logótipo</p>
+    {% endif %}
+    <a href="#">Dashboard</a>
+    <a href="{% url 'novo_projeto' %}">Criar Projeto</a>
+    <a href="{% url 'dashboard' %}">Meus Projetos</a>
+    <a href="{% url 'definicoes' %}">Definições</a>
+
+    <div class="sidebarBottom">
+      <a href="#"><img src="{% static 'icon/help.png' %}" alt="Ajuda"></a>
+    </div>
+    <div class="info-rodape">
+        <p>Todos os direitos reservados à Transfortech</p>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -5,7 +5,7 @@ from .models import Projeto, Tarefa, Arquivo
 class ProjetoForm(ModelForm):
     class Meta:
         model = Projeto
-        fields = ['nome', 'descricao', 'deadline']
+        fields = ['nome', 'deadline', 'descricao']
 
 class TarefaForm(ModelForm):
     class Meta:

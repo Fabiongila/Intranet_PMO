@@ -1,0 +1,19 @@
+{% load static %}
+<div class="sidebar">
+    {% if config.logotipo %}
+        <img src="{{ config.logotipo.url }}" alt="Logo" style="width: 100px;" />
+    {% else %}
+        <p>Sem logótipo</p>
+    {% endif %}
+    <a href="{% url 'dashboard' %}">Inicio</a>
+    <!--a href="{% url 'Deficições' %}">Administração</a-->
+    <!--a href="{% url 'historico' %}">Histórico</a-->
+    <a href="{% url 'definicoes' %}">Settings</a>
+    <div class="sidebarBottom">
+        <a href="#">Ajuda</a>
+        <a href="#">Reportar</a>
+    </div>
+    <div class="info-rodape">
+        <p>Todos direitos reservados a Transfortech</p>
+    </div>
+</div>

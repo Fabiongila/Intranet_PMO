@@ -60,6 +60,7 @@ def upload_arquivo(request, projeto_id):
         if form.is_valid():
             arquivo = form.save(commit=False)
             arquivo.projeto = projeto
+            arquivo.enviado_por = request.user
             arquivo.save()
             return redirect('detalhes_projeto', projeto_id=projeto.id)
     else:
@@ -68,7 +69,7 @@ def upload_arquivo(request, projeto_id):
 
 
 @login_required
-def conatactos(request):
+def contactos(request):
     return(request, 'projetos/contactos.html')
 
 

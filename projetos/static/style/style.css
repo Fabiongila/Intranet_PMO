@@ -1,0 +1,310 @@
+/*PRINCIPAIS*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color: #dfd7cb;
+}
+
+nav{
+    margin-bottom: 3%;
+}
+nav h1{
+    font-size: 40px;
+}
+nav p{
+    margin-left: 0%;
+}
+.text-top a{
+    margin-left: 1%;
+    color: #001;
+    font-weight: bold;
+    text-decoration: none;
+    transition: font-size, ease-in-out 0.5s;
+    background-color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 1%;
+}
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: #002;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    /* padding-top: 20px; */
+    font-size: 15px;
+}
+.sidebar a {
+    text-decoration: none;
+    padding: 10px;
+    color: #dfd7cb;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+    transition: font-size 0.3s ease 1s;
+}
+.sidebarBottom{
+    position: fixed;
+    bottom: 0;
+    padding: 0%;
+}
+.sidebarBottom a{
+    font-size: 11px;
+    padding: 0;
+}
+.sidebarBottom a img{
+    width: 40%;
+    margin-left: 10%;
+}
+.info-rodape p{
+    position: fixed;
+    bottom: 0;
+    color: #dfd7cb;
+    font-size: 10px;
+}
+.icon{
+    width: 50%;
+    margin-left: 15%;
+    margin-bottom: 10%;
+}
+/*TAG QUE MOSTRA O CONTEUDO A DIREITA DA SIDEBAR*/
+.content {
+    margin-left: 250px; /* Move o conteúdo para a direita da sidebar*/
+    margin-right: 2%;
+    padding: 20px;
+    height: 100%;
+}
+/*SEÇÃO PRINCIPAL*/
+section{
+    display: flex;
+    background-color: white;
+    border-radius: 4px;
+    padding: 1%;
+    margin-bottom: 2%;
+    flex-wrap: wrap;
+}
+section h2{
+    font-size: 20px;
+    margin-bottom: 1%;
+}
+section a{
+    margin: 3%;
+    border: 1px solid #002;
+    border-radius: 4px;
+    color: #dfd7cb;
+    background-color: #002;
+    padding: 3%;
+    text-decoration: none;
+}
+
+/* SOBRE PROJETO*/
+
+.projeto {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    margin-left: 1%;
+}
+
+.projeto:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.projeto h3 {
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.projeto p {
+    color: #555;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.projeto select {
+    width: 100%;
+    padding: 6px 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+}
+
+.projeto select:hover {
+    border-color: #007bff;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.botoes button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botoes .add {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.botoes .add:hover {
+    background-color: #0056b3;
+}
+
+.botoes .ver {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.botoes .ver:hover {
+    background-color: #ddd;
+}
+/* .progresso input{
+    border-radius: 20px;
+    background-color: green;
+} */
+
+/* ===== MODAL ===== */
+.modal {
+    display: none; /* Escondida por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fechar {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.fechar:hover {
+    color: red;
+}
+
+
+/*BOTÃO ADICIONAR DEPARTAMENTO*/
+.btn-Adddep{
+    background-color: #dfd7cb;
+    border: none;
+    color: black;
+    height: 10%;
+}
+
+/*TELA AUTH LOGIN-REGISTRAR*/
+.container{
+    text-align: center;
+    background-color: white;
+    border-radius: 4px;
+    padding: 1%;
+    margin-left: 30%;
+    margin-top: 3%;
+    width: 40%;
+    height: 100%;
+    padding-bottom: 3%;
+    box-shadow: 0 0 5px black;
+    background-color: rgba(0, 0, 0, 0.2);
+
+}
+.container h2{
+    margin-bottom: 5%;
+    margin-top: 10%;
+}
+.container input{
+    padding: 4px;
+    margin: 1%;
+    width: 50%;
+    background-color: white;
+    border: none;
+    height: 40px;
+    border-radius: 3rem;
+}
+.container button{
+    background-color: #002;
+    color: white;
+    width: 25%;
+    border-radius: 4px;
+    margin-bottom: 5%;
+    padding: 2%;
+    cursor: pointer;
+}
+.container a{
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* CRIAR PROJETO*/
+form button{
+    background: #002;
+    width: 100%;
+    color: #fff;
+    padding: 4%;
+    border-radius: 4px;
+}
+form input{
+    padding: 2%;
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid #002;
+    width: 100%;
+}
+
+/**/
+footer{
+    margin-top: 5%;
+    padding: 1%;
+    padding-bottom: 7%;
+    text-align: left;
+    width: 100%;
+}
+footer a{
+    text-decoration: none;
+    transition: 0.1s ease-in-out;
+}

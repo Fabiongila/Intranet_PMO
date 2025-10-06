@@ -1,10 +1,117 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load widget_tweaks %}
+{% load static %}
 <h2>Novo Projeto</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  <div class="form-group">
+    <label for="id_nome">Nome do Projeto</label>
+    {{ form_np.nome }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_descricao">Descrição</label>
+    {{ form_np.descricao }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_deadline">Deadline</label>
+    {{ form_np.deadline }}
+  </div>
+
   <button type="submit">Salvar</button>
 </form>
 <a href="{% url 'dashboard' %}">Voltar</a>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+Perfeito! Você pode estilizar com CSS puro, sem precisar de Bootstrap ou pacotes externos.
+
+Aqui vai um exemplo completo:
+
+---
+
+✅ 1. Template novo_projeto.html
+
+Substitua {{ form_np.as_p }} por campos manuais:
+
+html
+<form method="post">
+  {% csrf_token %}
+
+  <div class="form-group">
+    <label for="id_nome">Nome do Projeto</label>
+    {{ form_np.nome }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_descricao">Descrição</label>
+    {{ form_np.descricao }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_deadline">Deadline</label>
+    {{ form_np.deadline }}
+  </div>
+
+  <button type="submit">Salvar</button>
+</form>
+
+
+---
+
+✅ 2. No seu CSS (ex: style.css)
+
+css
+form {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #006e99;
+}
+
+
+---
+
+✅ 3. Não esqueça de carregar o CSS no seu base.html:
+

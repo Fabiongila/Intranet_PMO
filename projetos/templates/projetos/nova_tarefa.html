@@ -3,7 +3,19 @@
 <h2>Nova Tarefa para: {{ projeto.nome }}</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  <div class="form-group">
+    <label for="id_deadline">Descrição</label>
+    {{ form_nt.descricao }}
+  </div>
+  <div class="form-group">
+    <label for="id_deadline">Status</label>
+    {{ form_nt.status }}
+  </div>
+  <div class="form-group">
+    <label for="id_deadline">Progresso</label>
+    {{ form_nt.progresso }}
+  </div>
+
   <button type="submit">Salvar Tarefa</button>
 </form>
 <a href="{% url 'detalhes_projeto' projeto.id %}">Voltar</a>

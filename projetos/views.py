@@ -14,15 +14,15 @@ def dashboard(request):
 @login_required
 def novo_projeto(request):
     if request.method == 'POST':
-        form = ProjetoForm(request.POST)
+        form_np = ProjetoForm(request.POST)
         if form.is_valid():
-            projeto = form.save(commit=False)
+            projeto = form_np.save(commit=False)
             projeto.criado_por = request.user
             projeto.save()
             return redirect('dashboard')
     else:
-        form = ProjetoForm()
-    return render(request, 'projetos/novo_projeto.html', {'form': form})
+        form_np = ProjetoForm()
+    return render(request, 'projetos/novo_projeto.html', {'form_np': form_np})
 
 
 @login_required
@@ -42,14 +42,14 @@ def nova_tarefa(request, projeto_id):
     projeto = get_object_or_404(Projeto, id=projeto_id)
     if request.method == 'POST':
         form = TarefaForm(request.POST)
-        if form.is_valid():
-            tarefa = form.save(commit=False)
+        if form_nt.is_valid():
+            tarefa = form_nt.save(commit=False)
             tarefa.projeto = projeto
             tarefa.save()
             return redirect('detalhes_projeto', projeto_id=projeto.id)
     else:
-        form = TarefaForm()
-    return render(request, 'projetos/nova_tarefa.html', {'form': form, 'projeto': projeto})
+        form_nt = TarefaForm()
+    return render(request, 'projetos/nova_tarefa.html', {'form_nt': form_nt, 'projeto': projeto})
 
 
 @login_required
@@ -60,6 +60,7 @@ def upload_arquivo(request, projeto_id):
         if form.is_valid():
             arquivo = form.save(commit=False)
             arquivo.projeto = projeto
+            arquivo.enviado_por = request.user  # ✅ Adicione isso
             arquivo.save()
             return redirect('detalhes_projeto', projeto_id=projeto.id)
     else:

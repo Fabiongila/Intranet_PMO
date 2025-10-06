@@ -11,15 +11,14 @@
   </div>
 
   <div class="form-group">
-    <label for="id_descricao">Descrição</label>
-    {{ form_np.descricao }}
-  </div>
-
-  <div class="form-group">
     <label for="id_deadline">Deadline</label>
     {{ form_np.deadline }}
   </div>
-
+  
+  <div class="form-group">
+    <label for="id_descricao">Descrição</label>
+    {{ form_np.descricao }}
+  </div>
   <button type="submit">Salvar</button>
 </form>
 <a href="{% url 'dashboard' %}">Voltar</a>

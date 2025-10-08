@@ -33,3 +33,7 @@ def cadastro_view(request):
     else:
         form = CadastroForm()
     return render(request, 'usuarios/cadastro.html', {'form': form})
+
+
+def index(request):
+    return render(request, 'usuarios/index.html')

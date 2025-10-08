@@ -15,4 +15,48 @@
       <button type="submit">Salvar Tarefa</button>
     </form>
   </div>
+
+  <style>
+  /*SEÇÃO PRINCIPAL*/
+  section{
+      background-color:#dfd7cb;
+      border-radius: 4px;
+      padding: 1%;
+      margin-bottom: 2%;
+      flex-wrap: wrap;
+  }
+  h2{
+      margin-bottom: 1%;
+      color:#002;
+  }
+  section a{
+      border: 1px solid #002;
+      border-radius: 4px;
+      color: #dfd7cb;
+      background-color: #002;
+      text-decoration: none;
+      position:fixed;
+      bottom:0;
+      padding:1%;
+  }
+  /* NOVA TAREFA*/
+  form button{
+      background: #002;
+      {% comment %} width: 100%; {% endcomment %}
+      color: #fff;
+      padding: 1%;
+      border-radius: 4px;
+  }
+  form input{
+      padding: 1%;
+      margin: 1%;
+      border-radius: 4px;
+      border: none;
+      border-bottom: 1px solid #002;
+      width: 30%;
+  }
+
+</style>
+
+
 {% endblock %}

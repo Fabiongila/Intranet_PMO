@@ -1,0 +1,1 @@
+web: gunicorn Intranet_PMO.wsgi:application

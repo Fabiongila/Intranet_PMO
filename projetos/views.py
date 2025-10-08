@@ -41,15 +41,15 @@ def detalhes_projeto(request, projeto_id):
 def nova_tarefa(request, projeto_id):
     projeto = get_object_or_404(Projeto, id=projeto_id)
     if request.method == 'POST':
-        form = TarefaForm(request.POST)
-        if form.is_valid():
-            tarefa = form.save(commit=False)
+        form_nt = TarefaForm(request.POST)
+        if form_nt.is_valid():
+            tarefa = form_nt.save(commit=False)
             tarefa.projeto = projeto
             tarefa.save()
             return redirect('detalhes_projeto', projeto_id=projeto.id)
     else:
-        form = TarefaForm()
-    return render(request, 'projetos/nova_tarefa.html', {'form': form, 'projeto': projeto})
+        form_nt = TarefaForm()
+    return render(request, 'projetos/nova_tarefa.html', {'form_nt': form_nt, 'projeto': projeto})
 
 
 @login_required

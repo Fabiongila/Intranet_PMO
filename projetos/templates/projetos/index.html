@@ -1,0 +1,64 @@
+{% load static %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F0FAFF;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header img {
+            padding: 20px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .cabecario {
+            margin-left: 4%;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+                /* Aumenta 20% */
+            }
+
+            100% {
+                transform: scale(1);
+                /* Volta ao normal */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="{% static 'imagens/logo.png' %}" alt="logotipo" >
+    </header>
+    <script>
+        setTimeout(function () { window.location.href = "{% url 'login' %}" }, 7000)
+    </script>
+
+</body>
+
+</html>

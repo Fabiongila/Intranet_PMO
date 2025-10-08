@@ -79,3 +79,8 @@ def sobre(request):
 @login_required
 def faqs(request):
     return render(request, 'projetos/faqs.html')
+
+
+#
+def index(request):
+    return render(request, 'projetos/index.html')
